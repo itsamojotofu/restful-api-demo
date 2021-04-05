@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-
-  resources :purchasers, only: :create
-  resources :products, only: :create
-  resources :purchaser_products, only: :create
-
+  post 'purchaser', to: 'purchasers#create'
+  post 'product', to: 'products#create'
+  post 'purchaser_product', to: 'purchaser_products#create'
 end

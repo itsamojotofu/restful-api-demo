@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2021_04_05_092013) do
   create_table "purchaser_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "purchaser_id"
     t.bigint "product_id"
+    t.integer "purchase_timestamp", null: false
+    t.date "purchase_date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_purchaser_products_on_product_id"
