@@ -1,24 +1,63 @@
-# README
+This demo app is a REST API to manage transaction history of products.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+(Deployed on Heroku: https://wp-backend-test.herokuapp.com)
 
-Things you may want to cover:
+# Installation
 
-* Ruby version
+Install 'jq' with brew command.
 
-* System dependencies
+```bash
+brew install jq
+```
 
-* Configuration
+# DEMO
 
-* Database creation
+You can try following commands to create or get records on this API.
 
-* Database initialization
+## Create
 
-* How to run the test suite
+```terminal
+curl -H 'Content-Type:application/json' -d '{"name":"hoge"}' -X POST https://wp-backend-test.herokuapp.com/purchaser
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+##
 
-* Deployment instructions
+```terminal
+curl -H 'Content-Type:application/json' -d '{"name":"hoge"}' -X POST https://wp-backend-test.herokuapp.com/product
+```
 
-* ...
+##
+
+```terminal
+curl -H 'Content-Type:application/json' -d '{ "purchaser_id": 4, "product_id": 34, "purchase_timestamp": 1553094444 }' -X POST https://wp-backend-test.herokuapp.com/purchaser_product
+```
+
+##
+
+```terminal
+curl 'https://wp-backend-test.herokuapp.com/purchaser/4/product?start_date=2019-03-20&end_date=2020-11-11' | jq .
+```
+
+### sample response
+
+```terminal
+{
+  "purchases": {
+    "2019-03-20": [
+      {
+        "product": "Trumpet"
+      },
+      {
+        "product": "Diamond"
+      }
+    ]
+  }
+}
+```
+
+※ date range filtering by start date and end date parameters is optional.
+
+## Supplementary information
+
+- Ruby 2.6.5
+- Ruby on Rails 6.0.3.4
