@@ -20,7 +20,12 @@ class PurchasersController < ApplicationController
     purchases[:purchases] = {}
     products.each do |product|
       product_name = {"product": product.product.name}
-      purchases[:purchases].store(product[:purchase_date], [product_name])
+      purchase_date = product[:purchase_date]
+      unless purchases[:purchases][purchase_date]
+        purchases[:purchases].store(product[:purchase_date], [product_name])
+      else
+        purchases[:purchases][purchase_date] << product_name
+      end
     end
 
     render json: purchases
