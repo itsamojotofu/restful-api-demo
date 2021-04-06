@@ -8,6 +8,13 @@ class PurchasersController < ApplicationController
     end
   end
 
+  def show
+    @purchaser = Purchaser.find(params[:id])
+    @products = @purchaser.purchaser_products.where(purchase_date: params[:purchase_date]).order(purchase_timestamp: 'DESC')
+
+    render json: @products
+  end
+
   private
 
   def purchaser_params
