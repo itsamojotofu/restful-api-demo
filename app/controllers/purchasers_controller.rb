@@ -9,8 +9,12 @@ class PurchasersController < ApplicationController
   end
 
   def show
+    # set date-range for filtering
+    start_date = params[:start_date]
+    end_date = params[:end_date]
+
     @purchaser = Purchaser.find(params[:id])
-    @products = @purchaser.purchaser_products.where(purchase_date: params[:purchase_date]).order(purchase_timestamp: 'DESC')
+    @products = @purchaser.purchaser_products.where(purchase_date: start_date..end_date).order(purchase_timestamp: 'DESC')
 
     render json: @products
   end
