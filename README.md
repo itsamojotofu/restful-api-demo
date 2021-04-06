@@ -2,7 +2,7 @@ This demo app is a REST API to manage transaction history of products.
 
 (Deployed on Heroku: https://wp-backend-test.herokuapp.com)
 
-# Installation
+## Installation
 
 Install 'jq' with brew command.
 
@@ -10,29 +10,29 @@ Install 'jq' with brew command.
 brew install jq
 ```
 
-# DEMO
+## DEMO
 
 You can try following commands to create or get records on this API.
 
-## Create
+### Add a purchaser (POST)
 
 ```terminal
 curl -H 'Content-Type:application/json' -d '{"name":"hoge"}' -X POST https://wp-backend-test.herokuapp.com/purchaser
 ```
 
-##
+### Add a product (POST)
 
 ```terminal
 curl -H 'Content-Type:application/json' -d '{"name":"hoge"}' -X POST https://wp-backend-test.herokuapp.com/product
 ```
 
-##
+### Add a transaction (POST)
 
 ```terminal
 curl -H 'Content-Type:application/json' -d '{ "purchaser_id": 4, "product_id": 34, "purchase_timestamp": 1553094444 }' -X POST https://wp-backend-test.herokuapp.com/purchaser_product
 ```
 
-##
+### See transaction history (GET)
 
 ```terminal
 curl 'https://wp-backend-test.herokuapp.com/purchaser/4/product?start_date=2019-03-20&end_date=2020-11-11' | jq .
