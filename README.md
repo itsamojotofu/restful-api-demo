@@ -67,6 +67,10 @@ curl 'https://wp-backend-test.herokuapp.com/purchaser/4/product?start_date=2019-
 }
 ```
 
+## ER Diagram
+
+<img width="865" alt="Screen Shot 2021-04-07 at 1 42 14" src="https://user-images.githubusercontent.com/74521093/113747952-e1641380-9742-11eb-829c-1ee79db566c7.png">
+
 ## Supplementary information
 
 - Ruby 2.6.5
