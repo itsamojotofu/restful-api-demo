@@ -17,20 +17,23 @@ You can try following commands to create or get records on this API.
 ### 1: Add a purchaser (POST)
 
 ```terminal
-curl -H 'Content-Type:application/json' -d '{"name":"hoge"}'
+curl -H 'Content-Type:application/json' -d '{"name":"hoge"}' \
 -X POST https://wp-backend-test.herokuapp.com/purchaser
 ```
 
 ### 2: Add a product (POST)
 
 ```terminal
-curl -H 'Content-Type:application/json' -d '{"name":"hoge"}' -X POST https://wp-backend-test.herokuapp.com/product
+curl -H 'Content-Type:application/json' -d '{"name":"hoge"}' \
+-X POST https://wp-backend-test.herokuapp.com/product
 ```
 
 ### 3: Add a transaction (POST)
 
 ```terminal
-curl -H 'Content-Type:application/json' -d '{ "purchaser_id": 4, "product_id": 34, "purchase_timestamp": 1553094444 }' -X POST https://wp-backend-test.herokuapp.com/purchaser_product
+curl -H 'Content-Type:application/json' \
+-d '{ "purchaser_id": 4, "product_id": 34, "purchase_timestamp": 1553094444 }' \
+-X POST https://wp-backend-test.herokuapp.com/purchaser_product
 ```
 
 ### 4: See transaction history (GET)
