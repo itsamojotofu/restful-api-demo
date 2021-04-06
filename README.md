@@ -36,13 +36,21 @@ curl -H 'Content-Type:application/json' \
 -X POST https://wp-backend-test.herokuapp.com/purchaser_product
 ```
 
-### 4: See transaction history (GET)
+### 4: Check full transaction history of a purchaser (GET)
+
+```terminal
+curl 'https://wp-backend-test.herokuapp.com/purchaser/4/product' | jq .
+```
+
+### 5: Check transaction history of a purchaser during a period (GET)
 
 ```terminal
 curl 'https://wp-backend-test.herokuapp.com/purchaser/4/product?start_date=2019-03-20&end_date=2020-11-11' | jq .
 ```
 
-### sample response
+※ date range filtering by start date and end date parameters is optional.
+
+#### sample response
 
 ```terminal
 {
@@ -58,8 +66,6 @@ curl 'https://wp-backend-test.herokuapp.com/purchaser/4/product?start_date=2019-
   }
 }
 ```
-
-※ date range filtering by start date and end date parameters is optional.
 
 ## Supplementary information
 
