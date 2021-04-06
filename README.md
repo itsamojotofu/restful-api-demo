@@ -14,25 +14,26 @@ brew install jq
 
 You can try following commands to create or get records on this API.
 
-### Add a purchaser (POST)
+### 1: Add a purchaser (POST)
 
-```
-curl -H 'Content-Type:application/json' -d '{"name":"hoge"}' -X POST https://wp-backend-test.herokuapp.com/purchaser
+```terminal
+curl -H 'Content-Type:application/json' -d '{"name":"hoge"}'
+-X POST https://wp-backend-test.herokuapp.com/purchaser
 ```
 
-### Add a product (POST)
+### 2: Add a product (POST)
 
 ```terminal
 curl -H 'Content-Type:application/json' -d '{"name":"hoge"}' -X POST https://wp-backend-test.herokuapp.com/product
 ```
 
-### Add a transaction (POST)
+### 3: Add a transaction (POST)
 
 ```terminal
 curl -H 'Content-Type:application/json' -d '{ "purchaser_id": 4, "product_id": 34, "purchase_timestamp": 1553094444 }' -X POST https://wp-backend-test.herokuapp.com/purchaser_product
 ```
 
-### See transaction history (GET)
+### 4: See transaction history (GET)
 
 ```terminal
 curl 'https://wp-backend-test.herokuapp.com/purchaser/4/product?start_date=2019-03-20&end_date=2020-11-11' | jq .
