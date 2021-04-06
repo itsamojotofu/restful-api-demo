@@ -16,7 +16,7 @@ You can try following commands to create or get records on this API.
 
 ### Add a purchaser (POST)
 
-```terminal
+```
 curl -H 'Content-Type:application/json' -d '{"name":"hoge"}' -X POST https://wp-backend-test.herokuapp.com/purchaser
 ```
 
