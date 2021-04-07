@@ -13,7 +13,7 @@ class PurchasersController < ApplicationController
     start_date = params[:start_date]
     end_date = params[:end_date]
     # find all products purchased by the purchaser during the range
-    purchaser = Purchaser.find(params[:id])
+    purchaser = Purchaser.includes(:purchaser_products).find(params[:id])
     products = purchaser.purchaser_products.where(purchase_date: start_date..end_date).order(purchase_timestamp: 'DESC')
     # formatting for response
     purchases = {}
